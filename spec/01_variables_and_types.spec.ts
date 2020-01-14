@@ -139,6 +139,47 @@ describe('describing varialbes ', () => {
 
             });
 
+            it('a tuple exmaple', () => {
+                type NameResult = [string, number];
+                function formatName(first: string, last: string): NameResult {
+                    const fn = `${last}, ${first}`;
+                    return [fn, fn.length];
+                }
+                const [fullName, length] = formatName('Luke', 'Skywalker');
+                expect(fullName).toBe('Skywalker, Luke');
+                expect(length).toBe(15);
+
+            });
+
+        });
+    });
+    describe('enums and union constants', () => {
+        enum SeatType { window, aisle, middle }
+        function getSeatForticket(ticketNumber: number) {
+            if (ticketNumber % 2 === 0) {
+                return SeatType.window;
+            } else {
+                return SeatType.aisle;
+            }
+        }
+        it('a truth table', () => {
+            expect(true).toBeTruthy();
+            expect(false).toBeFalsy();
+            expect('').toBeFalsy();
+            expect(' ').toBeTruthy();
+            expect(undefined).toBeFalsy();
+            expect(null).toBeFalsy();
+            expect(0).toBeFalsy();
+            expect(1).toBeTruthy();
+            // this means if you use one of these as a predicate in an if statement, you will get either true or false.
+            // e.g.
+            if ('tacos') {
+                // it is true!
+            }
+
+        });
+        it('should behave...', () => {
+
         });
     });
 
