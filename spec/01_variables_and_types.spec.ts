@@ -155,7 +155,7 @@ describe('describing varialbes ', () => {
     });
     describe('enums and union constants', () => {
         enum SeatType { window, aisle, middle }
-        function getSeatForticket(ticketNumber: number) {
+        function getSeatForticket(ticketNumber: number): SeatType {
             if (ticketNumber % 2 === 0) {
                 return SeatType.window;
             } else {
@@ -178,8 +178,27 @@ describe('describing varialbes ', () => {
             }
 
         });
-        it('should behave...', () => {
-
+        it('using enums', () => {
+            const getMySeat = getSeatForticket(108);
+            let cost = 0;
+            switch (getMySeat) {
+                case SeatType.window: {
+                    cost = 100;
+                    break;
+                }
+                case SeatType.aisle: {
+                    cost = 150;
+                    break;
+                }
+                case SeatType.middle: {
+                    cost = 75;
+                    break;
+                }
+                default: {
+                    // some other thing
+                }
+            }
+            expect(cost).toBe(100);
         });
     });
 
