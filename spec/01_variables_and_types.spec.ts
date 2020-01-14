@@ -201,5 +201,28 @@ describe('describing varialbes ', () => {
             expect(cost).toBe(100);
         });
     });
+    it('with union constant', () => {
+        type SeatType = 'asile' | 'window' | 'middle';
+        const mySeat: SeatType = 'window';
+    });
+
+    it('type assertions', () => {
+        let x: any;
+
+        x = 'Tacos';
+
+        // expect(x.howlong).toBe(5);
+
+        const y = x as string;
+
+        expect(y.length).toBe(5);
+
+        // tslint:disable-next-line: no-angle-bracket-type-assertion
+        const z = <string>x;
+
+        expect((x as string).length).toBe(5);
+    });
+
+
 
 });
