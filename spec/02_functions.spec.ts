@@ -73,24 +73,7 @@ describe('Functions', () => {
         });
     });
 
-    describe('higher order function', () => {
-        // A function that takes one or more arguments that are fucntions and / or
-        // return a function
-        it('the basic syntax', () => {
-            type StringModifier = (msg: string) => string;
-            function logItOut(message: string, f: StringModifier) {
-                console.log(`At ${new Date().toISOString()}: ${f(message)}`);
-            }
-            logItOut('Tacos!!!', (s: string) => s.toUpperCase());
 
-            function decorate(x: string) {
-                return `***${x}***`;
-            }
-            logItOut('Burrito', decorate);
-        });
-
-
-    });
 
     it('type assertions', () => {
         let x: any;
